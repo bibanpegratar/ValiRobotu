@@ -5,9 +5,20 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
+/*
+Nume motoare in hardwareMap:
+    - DC motors
+        - "m0" - motor roata stanga
+        - "m1" - motor roata dreapta
+
+    - servos
+        - "servoL" - servo brat stanga
+        - "servoR" - servo brat dreapta
+ */
+
 public class Hardware
 {
-    private HardwareMap hardwareMap;
+    private HardwareMap hardware_map;
 
     //motoare roti
     public DcMotor left_motor_wheel = null;
@@ -20,14 +31,14 @@ public class Hardware
     //constructor
     public Hardware(HardwareMap hardwareMap)
     {
-        this.hardwareMap = hardwareMap;
+        this.hardware_map = hardwareMap;
         initialize();
     }
 
     private void initialize()
     {
-        left_servo = hardwareMap.get(Servo.class, "servoL");
-        right_servo = hardwareMap.get(Servo.class, "servoR");
+        left_servo = hardware_map.get(Servo.class, "servoL");
+        right_servo = hardware_map.get(Servo.class, "servoR");
         left_servo.setPosition(0.0);
         right_servo.setPosition(0.0);
 
@@ -37,7 +48,7 @@ public class Hardware
 
     private void setDefaultStateMotor(DcMotor motor, String nume, DcMotorSimple.Direction direction)
     {
-        motor = hardwareMap.get(DcMotor.class, nume);
+        motor = hardware_map.get(DcMotor.class, nume);
         motor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         motor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);

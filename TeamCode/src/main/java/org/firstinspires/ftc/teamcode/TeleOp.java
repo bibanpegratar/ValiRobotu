@@ -1,11 +1,26 @@
 package org.firstinspires.ftc.teamcode;
 
+import androidx.annotation.NonNull;
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="Basic Teleop 1", group="Opmode")
 
+/*
+Miscarea rotilor
+    - pt rotire, se inverseaza directiea motorului din partea in care este indreptat rstickul,
+    cele doua motoare mergand in sensuri opuse
+
+    - lstick axa y - miscare fata spate
+    - rstrick axa x - rotire
+
+Miscarea servourilor pt brate
+    -left_bumper si right_bumper pt pornirea / oprirea miscarii servourilor din stanga / dreapta
+    -se misca sus jos, in loop
+
+ */
 public class TeleOp extends OpMode
 {
     private Hardware hardware;
@@ -21,7 +36,6 @@ public class TeleOp extends OpMode
 
     public void start()
     {
-
     }
 
     public void loop()
@@ -49,7 +63,6 @@ public class TeleOp extends OpMode
     //if rstick to right, reverse right motor to rotate right
     private void move_wheels(float x_movement, float rotate, double speed)
     {
-
         //TODO: possible error
         double power1 = (x_movement + rotate) / 2 * speed; //power for left wheel
         double power2 = (x_movement + rotate) / 2 * speed; //power for right wheel
