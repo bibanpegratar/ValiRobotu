@@ -42,7 +42,7 @@ public class Hardware
         left_servo.setPosition(0.0);
         right_servo.setPosition(0.0);
 
-        setDefaultStateMotor(left_motor_wheel, "m0", DcMotorSimple.Direction.FORWARD); // roata stanga
+        setDefaultStateMotor(left_motor_wheel, "m0", DcMotorSimple.Direction.REVERSE); // roata stanga
         setDefaultStateMotor(right_motor_wheel, "m1", DcMotorSimple.Direction.FORWARD); // roata dreapta
     }
 
